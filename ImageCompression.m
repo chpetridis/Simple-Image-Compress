@@ -21,6 +21,7 @@ function ImageCompression(Q)
     counter_x=1;counter_y=1;
     decompressed_image=zeros(256);compressed_image=zeros(256);
     for i=1:1:1024
+    	% ---------- COMPRESSION PHASE ------------ 
         F=dct2(cell2mat(f(i)));
         for k=1:1:8
             for m=1:1:8
@@ -36,6 +37,7 @@ function ImageCompression(Q)
            b=counter_y;
            a=a+1;
         end
+	% ----------- DECOMPRESSION PHASE -------------
           for k=1:1:8
             for m=1:1:8
                 F(k,m)=F(k,m)*Q(k,m);
